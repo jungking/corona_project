@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node server/server.js",
-    "dev": "concurrently \"node ./server/server.js\" \"node scripts/start.js\""
+    "dev": "concurrently \"nodemon ./server/server.js\" \"npm run start\""
   },
   "eslintConfig": {
     "extends": [
