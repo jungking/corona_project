@@ -27,6 +27,7 @@ const airdata = (sidoName, callback) => {       // index.js에서 보내준 시/
         //console.log(url+queryParams);
         //console.log('Status', response.statusCode);
         //console.log('Headers', JSON.stringify(response.headers));
+        
         console.log('Reponse received', body);
 
         callback(undefined,{    //body를 air이름으로 만들어서 index.js에 보내준다
