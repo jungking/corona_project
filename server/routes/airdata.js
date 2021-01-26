@@ -5,7 +5,7 @@ const serviceKey = '8pi%2BdKWKiqEdnVIk%2FGQHka7Wc7cwcZjpP18pKjlYcrtVhSPtbvfBCeg2
 var parse = require('json-parse');
 const airdata = (day, callback) => {       // index.js에서 보내준 시/도 이름을 여기서 받았다.
 
-    console.log("에어데이타2!!!!!");            //진입햇는지 확인용
+    console.log("enter air data");            //진입햇는지 확인용
     
     const url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?';
     //api사용하기 위한 url이다. 끝에 '?'물음표를 붙여야된다.
