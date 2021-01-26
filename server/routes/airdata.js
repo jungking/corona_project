@@ -1,5 +1,7 @@
-const request = require('request')
+const request = require('request');
+const convert = require('xml-js');
 const serviceKey = '8pi%2BdKWKiqEdnVIk%2FGQHka7Wc7cwcZjpP18pKjlYcrtVhSPtbvfBCeg2pbVlDuRZDU2gqaMSqnCx2Eh8tslKTg%3D%3D'
+
 //공공데이터 포털에서 받은 내 서비스키 
 
 var parse = require('json-parse');
@@ -27,8 +29,12 @@ const airdata = (day, callback) => {       // index.js에서 보내준 시/도 �
         //console.log(url+queryParams);
         //console.log('Status', response.statusCode);
         //console.log('Headers', JSON.stringify(response.headers));
+        //console.log('Reponse received', body);
         
-        console.log('Reponse received', body);
+        var xmlToJson = convert.xml2json(body, {compact:true, spaces:4});
+        console.log(`xml to json => ${xmlToJson}`)
+        
+        
 
         callback(undefined,{    //body를 air이름으로 만들어서 index.js에 보내준다
             air:body
