@@ -1,4 +1,7 @@
 import React from 'react';
+import moment from 'moment';
+
+var m = moment().format('YYYYMMDD'); //오늘 날짜
 /* import './main.css'; */
 
 
@@ -7,7 +10,7 @@ class Main extends React.Component {
         super(props);
 
         this.state = {
-            day:'',    //날짜 받는 state값
+            day:m,    //날짜 받는 state값
         };
     }
     onChange = (e) =>{
@@ -46,7 +49,7 @@ class Main extends React.Component {
             <div className="main">
                 <h1>지역</h1>
                 <form>
-                    <input placeholder="측정날짜" name="day" onChange={this.onChange}/>
+                    <input placeholder={this.state.day} name="day" onChange={this.onChange}/>
                     <button onClick={this.search}>Search</button>
                 </form>
             </div>
