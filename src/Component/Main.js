@@ -37,7 +37,7 @@ class Main extends React.Component {
         .then(res => res.json())    // 서버로부터 받음
         .then(json => {
             console.log(json);      
-            //console.log(json.list[0].DEF_CNT);     //DEF_CNT 확진자 수
+            console.log(json.list[0].DEF_CNT);     //DEF_CNT 확진자 수
             //console.log(json.list[0].ISOL_ING_CNT);    //ISOL_ING_CNT 격리중 환자 수
             //console.log(json.list[0].OVER_FLOW_CNT);    //OVER_FLOW_CNT 해외유입 수
             //console.log(json.list[0].LOCAL_OCC_CNT);    //LOCAL_OCC_CNT 지역발생 수 

@@ -37,7 +37,7 @@ const airdata = (day, callback) => {       // index.js에서 보내준 시/도 �
         
 
         callback(undefined,{    //body를 air이름으로 만들어서 index.js에 보내준다
-            air:body
+            air:xmlToJson
         })
         });
         
