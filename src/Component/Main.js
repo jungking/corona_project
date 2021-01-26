@@ -10,7 +10,7 @@ class Main extends React.Component {
         super(props);
 
         this.state = {
-            day:m,    //날짜 받는 state값
+            day:m,    //날짜 받는 state값day 에 오늘날짜 m 입력
         };
     }
     onChange = (e) =>{
@@ -49,7 +49,7 @@ class Main extends React.Component {
             <div className="main">
                 <h1>지역</h1>
                 <form>
-                    <input placeholder={this.state.day} name="day" onChange={this.onChange}/>
+                    <input placeholder={this.state.day} name="day" onChange={this.onChange}/>  
                     <button onClick={this.search}>Search</button>
                 </form>
             </div>
