@@ -40,7 +40,7 @@ class Main extends React.Component {
         })
         .then(res => res.json())    // 서버로부터 받음
         .then(json => {
-            //console.log(json);      
+            console.log(json);      
             
             console.log('금일 확진자 수 : ', json.response.body.items.item[18].incDec._text);     //금일 확진자 수
             const incdec = json.response.body.items.item[18].incDec._text
