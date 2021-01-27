@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 var m = moment().format('YYYYMMDD'); //오늘 날짜
+
 /* import './main.css'; */
 
 
@@ -37,22 +38,28 @@ class Main extends React.Component {
         .then(res => res.json())    // 서버로부터 받음
         .then(json => {
             console.log(json);      
-            console.log('금일 확진자 수 : ', json.response.body.items.item[18].incDec);     //금일 확진자 수
+            console.log('금일 확진자 수 : ', json.response.body.items.item[18].incDec._text);     //금일 확진자 수
+            const incdec = json.response.body.items.item[18].incDec._text
+            console.log(incdec);
+
             //console.log(json.list[0].ISOL_ING_CNT);    //현재 확진자 환자 수
             //console.log(json.list[0].OVER_FLOW_CNT);    //OVER_FLOW_CNT 해외유입 수
             //console.log(json.list[0].LOCAL_OCC_CNT);    //LOCAL_OCC_CNT 지역발생 수 
         });
     }
-
+    
     render() {
         return (
             <div className="main">
                 <h1>지역</h1>
+                <h4>제주, 경남, 경북, 전남, 전북, 충남, 충북, 강원 ,경기</h4><h4> 세종, 울산, 대전 광주, 인천, 대구, 부산, 서울, 전국</h4>
                 <form>
                     <input placeholder={this.state.day} name="day" onChange={this.onChange}/>  
                     <button onClick={this.search}>Search</button>
                 </form>
+                <h1>{m}</h1>
             </div>
+            
         );
     }
 }
