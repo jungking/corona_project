@@ -12,6 +12,7 @@ class Main extends React.Component {
 
         this.state = {
             day:m,    //날짜 받는 state값day 에 오늘날짜 m 입력
+            city : '지역'
         };
     }
     onChange = (e) =>{
@@ -25,23 +26,26 @@ class Main extends React.Component {
         e.preventDefault();
 
          const body = {
-            day: this.state.day		// 현재 시,도이름을 body에 넣는다.
+            day: this.state.day,		// 현재 시,도이름을 body에 넣는다.
+            city : this.state.city
          }
 
         
         fetch('http://localhost:5000/location',{ // localhost 서버 5000번 포트의 location에게 보낸다.
             method:"post",
             headers: { "Content-Type":  "application/json" },
+           // mode : 'no-cors',
             body: JSON.stringify(body),	// json화 해버리기
             
         })
         .then(res => res.json())    // 서버로부터 받음
         .then(json => {
-            console.log(json);      
+            //console.log(json);      
+            
             console.log('금일 확진자 수 : ', json.response.body.items.item[18].incDec._text);     //금일 확진자 수
             const incdec = json.response.body.items.item[18].incDec._text
             console.log(incdec);
-
+            
             //console.log(json.list[0].ISOL_ING_CNT);    //현재 확진자 환자 수
             //console.log(json.list[0].OVER_FLOW_CNT);    //OVER_FLOW_CNT 해외유입 수
             //console.log(json.list[0].LOCAL_OCC_CNT);    //LOCAL_OCC_CNT 지역발생 수 
