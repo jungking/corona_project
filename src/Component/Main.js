@@ -55,13 +55,17 @@ class Main extends React.Component {
     render() {
         return (
             <div className="main">
-                <h1>지역</h1>
-                <h4>제주, 경남, 경북, 전남, 전북, 충남, 충북, 강원 ,경기</h4><h4> 세종, 울산, 대전 광주, 인천, 대구, 부산, 서울, 전국</h4>
+                <h1>CORONA PROJECTG</h1>
+                
                 <form>
                     
                     <button onClick={this.search}>최초 실행 시 클릭하여 정보 저장하기</button>
-                    <h1>저장된 정보의 날짜는 {m}</h1>
-                    
+                    <h1>저장된 정보의 날짜는 ({m})</h1>
+
+                    <h1>지역</h1>
+                    <h4>제주, 경남, 경북, 전남, 전북, 충남, 충북, 강원 ,경기</h4><h4> 세종, 울산, 대전 광주, 인천, 대구, 부산, 서울, 전국</h4>
+                
+
                     <input placeholder={this.state.day} name="day" onChange={this.onChange}/>  
                     <button onClick={this.search}>Search</button>
                      
