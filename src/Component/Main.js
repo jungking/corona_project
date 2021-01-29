@@ -13,7 +13,8 @@ class Main extends React.Component {
 
         this.state = {
             day:m,    //날짜 받는 state값day 에 오늘날짜 m 입력
-            city : '지역 명'
+            city : '지역 명',
+            title : null
         };
     }
     onChange = (e) =>{ //최초 실행시 클릭 함수
@@ -73,11 +74,11 @@ class Main extends React.Component {
     render() {
         return (
             <div className="main">
-                <h1>CORONA PROJECTG</h1>
+                <h1>CORONA PROJECT</h1>
                 
                 <form>
-                    
-                    <button onClick={this.search}>최초 실행 시 클릭하여 정보 저장하기</button>
+                    {this.state.title ? <h1> DB 현황 확인 : {this.state.title}</h1>:<h1>DB 현황 확인 : loading...</h1>}
+                    <button onClick = {this.search}> 최초 실행 시 클릭하여 DB에 정보 저장</button>
                     <h1>저장된 정보의 날짜는 ({m})</h1>
 
                     <h1>지역</h1>
