@@ -16,8 +16,7 @@ const conn = mysql.createConnection({     // mysql db 커넥션 생성
 });
 
 conn.connect()  //db 연결
-
-
+var ai = 0
 
 router.post('/location',function (req,res){ ///프론트에서 fetch로 요청한 location 친구
 
@@ -27,11 +26,19 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
             console.log("ERROR : server, index.js error");
             return res.send({error})
         }
-        return res.send(air);   // airdata에서 받은 객체를 프론틀앤드로 보내준다. 
+            //res.send(air)
+            //return res.send(air);   // airdata에서 받은 객체를 프론틀앤드로 보내준다. 
+            return res.send(air)
+
     })
-    
-    const Dec = res.;
-    conn.query("UPDATE jeju set incDec=(?) Where number = 1", [Dec])
+
+    //console.log("ai =", ai)
+    //const Dec = ai.response
+    //conn.query("UPDATE jeju set incDec=(?) Where number = 1", [Dec]) // db에 넣기
+     
 })
+
+
+
 
 module.exports = router;

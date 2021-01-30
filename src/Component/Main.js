@@ -53,7 +53,7 @@ class Main extends React.Component {
         fetch('http://localhost:5000/location',{ // localhost 서버 5000번 포트의 location에게 보낸다.
             method:"post",
             headers: { "Content-Type":  "application/json" },
-           // mode : 'no-cors',
+            //mode : 'no-cors',
             body: JSON.stringify(body),	// json화 해버리기
             
         })
@@ -61,9 +61,9 @@ class Main extends React.Component {
         .then(json => {
             console.log(json);      
             
-            console.log('금일 확진자 수 : ', json.response.body.items.item[18].incDec._text);     //금일 확진자 수
-            const incdec = json.response.body.items.item[18].incDec._text
-            console.log(incdec);
+            //console.log('금일 확진자 수 : ', json.response.body.items.item[18].incDec._text);     //금일 확진자 수
+            //const incdec = json.response.body.items.item[18].incDec._text
+            //console.log(incdec);
             
             //console.log(json.list[0].ISOL_ING_CNT);    //현재 확진자 환자 수
             //console.log(json.list[0].OVER_FLOW_CNT);    //OVER_FLOW_CNT 해외유입 수
