@@ -31,7 +31,7 @@ const airdata = (day,callback) => {       // index.js에서 보내준 시/도 �
         //console.log('Reponse received', body);
         
         var xmlToJson = convert.xml2json(body, {compact:true, spaces:4});
-        //console.log(`xml to json => ${xmlToJson}`)
+        console.log(`xml to json => ${xmlToJson}`)
         console.log("COMPLETE : air data connect");            //진입햇는지 확인용
         
         
