@@ -29,18 +29,18 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
             //res.send(air)
             //return res.send(air);   // airdata에서 받은 객체를 프론틀앤드로 보내준다. 
             JSON.stringify(air)
-            ai = air  //전역변수 ai에 air 낚아채기
+            //ai = air  //전역변수 ai에 air 낚아채기
             
             //console.log("ai =", ai)
-            return res.send(air) //return 프론트로 가던 것
+            return ai = air //return 프론트로 가던 것
 
     })
     
     console.log("ai =", ai)
     //json.response.body.items.item[18].incDec._text     //금일 확진자 수
     
-    const Dec = ai.response.header.resultCode._text //body.items.item[18].incDec._text
-    console.log(Dec)
+    //const Dec = ai.response.body.items.item[1]._text //body.items.item[18].incDec._text
+    //console.log(Dec)
     //conn.query("UPDATE jeju set incDec=(?) Where number = 1", [Dec]) // db에 넣기
 
      
