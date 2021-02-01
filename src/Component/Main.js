@@ -13,8 +13,8 @@ class Main extends React.Component {
 
         this.state = {
             day:m,    //날짜 받는 state값day 에 오늘날짜 m 입력
-            city : '지역 명',
-            title : null
+            //city : '지역 명',
+            //title : null
         };
     }
     onChange = (e) =>{ //최초 실행시 클릭 함수
@@ -46,7 +46,7 @@ class Main extends React.Component {
 
          const body = {
             day: this.state.day,		// 현재 시,도이름을 body에 넣는다.
-            city : this.state.city
+            //city : this.state.city
          }
 
         
