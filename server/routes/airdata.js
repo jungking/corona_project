@@ -36,7 +36,7 @@ const airdata = (day,callback) => {       // index.js에서 보내준 시/도 �
         body = JSON.parse(body)
         //console.log(`xml to json => ${xmlToJson}`)
         console.log("COMPLETE : air data connect");            //진입햇는지 확인용
-        //body = JSON.stringify(body)
+        body = JSON.stringify(body)
         fs.writeFileSync('airdata-json.json',body)
 
         callback(undefined,{    //body를 air이름으로 만들어서 index.js에 보내준다
