@@ -36,7 +36,7 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
     })
 
     const airbuffer = fs.readFileSync('airdata-json.json')
-    //const airjson = airbuffer.toString()
+    const airjson = airbuffer.toString()
 
     //console.log("airjson =", airjson)
     console.log("airjson =", airjson)
