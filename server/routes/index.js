@@ -5,6 +5,9 @@ const airdata = require('./airdata'); //여기서 만들어논 함수를 사용�
 const router = express.Router();
 const mysql = require('mysql');
 
+const fs = require('fs');
+
+
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
 
@@ -17,7 +20,6 @@ const conn = mysql.createConnection({     // mysql db 커넥션 생성
 });
 
 conn.connect()  //db 연결
-var ai = 0
 
 router.post('/location',function (req,res){ ///프론트에서 fetch로 요청한 location 친구
     
@@ -27,16 +29,20 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
             console.log("ERROR : server, index.js error");
             return res.send({error})
         }
-            //console.log("ai =", ai)
-            console.log(air);
-            return ai = air //return 프론트로 가던 것
+            
+            
+            return res.send(air); //return 프론트로 가던 것
 
     })
-        
-    //console.log("ai =", ai)
+
+    const airbuffer = fs.readFileSync('airdata-json.json')
+    //const airjson = airbuffer.toString()
+
+    //console.log("airjson =", airjson)
+    console.log("airjson =", airjson)
     //json.response.body.items.item[18].incDec._text     //금일 확진자 수
     
-    //const Dec = ai.response.body.items.item[1]._text //body.items.item[18].incDec._text
+    //var Dec = ai.response.body.items.item[1]._text //body.items.item[18].incDec._text
     //console.log(Dec)
     //conn.query("UPDATE jeju set incDec=(?) Where number = 1", [Dec]) // db에 넣기
 
