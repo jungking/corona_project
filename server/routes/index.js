@@ -29,8 +29,6 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
             console.log("ERROR : server, index.js error");
             return res.send({error})
         }
-            
-            
             return res.send(air); //return 프론트로 가던 것
 
     })
@@ -96,7 +94,20 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
       
 })
 
-
-
+router.post("/calldb", function(req,res){
+    const cityname = req.body.city;
+    console.log("cityname=",cityname);
+    conn.query("SELECT * FROM (?)",[cityname],
+    function(err,rows,fields){
+        if(err){
+            console.log("실패");
+            console.log(err);
+        }else{
+            console.log("성공");
+            // console.log(rows);
+            res.send(rows[0])
+        };
+    });
+});
 
 module.exports = router;
