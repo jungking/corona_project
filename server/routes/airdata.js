@@ -26,7 +26,7 @@ const airdata = (day,callback) => {       // index.js에서 보내준 시/도 �
         method: 'GET'
         }, function (error, response, body) 
         {
-        //console.log(url+queryParams);
+        console.log(url+queryParams);
         //console.log('Status', response.statusCode);
         //console.log('Headers', JSON.stringify(response.headers));
         //console.log('Reponse received', body);
