@@ -19,7 +19,7 @@ const airdata = (day,callback) => {       // index.js에서 보내준 시/도 �
     queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10');   //한 페이지 경과 수
     queryParams += '&' + encodeURIComponent('startCreateDt') + '=' + encodeURIComponent(day);    //데이터 생성일 시작범위
     queryParams += '&' + encodeURIComponent('endCreateDt') + '=' + encodeURIComponent(day);  //20210126데이터 생성일 종료범위
-    //queryParams += '&' + encodeURIComponent('_returnType') + '=' + encodeURIComponent('json')   //josn으로 받기 
+    queryParams += '&' + encodeURIComponent('_returnType') + '=' + encodeURIComponent('json')   //josn으로 받기 
     
     request(
         {
@@ -33,10 +33,10 @@ const airdata = (day,callback) => {       // index.js에서 보내준 시/도 �
         //console.log('Reponse received', body);
         
         body = convert.xml2json(body, {compact:true, spacese:4});
-        body = JSON.parse(body)
+        //body = JSON.parse(body)
         //console.log(`xml to json => ${xmlToJson}`)
         console.log("COMPLETE : air data connect");            //진입햇는지 확인용
-        body = JSON.stringify(body)
+        //body = JSON.stringify(body)
         fs.writeFileSync('airdata-json.json',body)
 
         callback(undefined,{    //body를 air이름으로 만들어서 index.js에 보내준다
