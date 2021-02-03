@@ -8,6 +8,7 @@ const mysql = require('mysql');
 const fs = require('fs');
 
 
+
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
 
@@ -90,20 +91,17 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
     conn.query("UPDATE 서울 set incdec=(?) Where id = 1", [Dec17]) 
 
     var Dec18 = parseData.response.body.items.item[18].incDec._text  // 전국 확진자 수
-    conn.query("UPDATE 합계 set incdec=(?) Where id = 1", [Dec18])  
-      
+    conn.query("UPDATE 전국 set incdec=(?) Where id = 1", [Dec18])  
 })
 
 router.post("/calldb", function(req,res){
     const cityname = req.body.city;
-    console.log("cityname=",cityname);
-    conn.query("SELECT * FROM (?)",[cityname],
-    function(err,rows,fields){
+    conn.query("SELECT * FROM "+cityname, function(err,rows,fields){
         if(err){
-            console.log("실패");
+            console.log("DB접속 실패");
             console.log(err);
         }else{
-            console.log("성공");
+            console.log("DB접속 성공, 가져온 지역 : ", cityname);
             // console.log(rows);
             res.send(rows[0])
         };
