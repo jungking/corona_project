@@ -6,7 +6,6 @@ const serviceKey = '8pi%2BdKWKiqEdnVIk%2FGQHka7Wc7cwcZjpP18pKjlYcrtVhSPtbvfBCeg2
 //공공데이터 포털에서 받은 내 서비스키 
 
 var parse = require('json-parse');
-const { stringify } = require('querystring');
 const airdata = (day,callback) => {       // index.js에서 보내준 시/도 이름을 여기서 받았다.
     
     
