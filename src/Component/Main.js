@@ -13,29 +13,33 @@ class Main extends React.Component {
 
         this.state = {
             day:m,    //날짜 받는 state값day 에 오늘날짜 m 입력
-            //city : '지역 명',
+            city : '지역 명',
             //title : null
         };
     }
-    onChange = (e) =>{ //최초 실행시 클릭 함수
+/*     onChange = (e) =>{ //최초 실행시 클릭 함수
         this.setState({
             [e.target.name]: e.target.value ,   //  input창 입력값을 바로바로 state값 초기화
         })
         console.log(this.state.location);
-    }
+    } */
+
     onclick = (e) => { //지역 명 넣고 클릭 함수
-        fetch("http:/localhost:5000",{
+        const body = {
+            city : this.state.city,
+        }
+        fetch("http:/localhost:5000/calldb",{
             method: "post", //통신방법 post
             headers : {
                 "content-type" : "application/json",
             },
-            body:JSON.stringify(),
+            body:JSON.stringify(body),
         })
         .then((res)=> res.json())
         .then((json) => {
             console.log(json);
             this.setState({
-              data: json.user_id,
+              data: json
         
             });
         });
@@ -45,8 +49,7 @@ class Main extends React.Component {
         e.preventDefault();
 
          const body = {
-            day: this.state.day,		// 현재 시,도이름을 body에 넣는다.
-            //city : this.state.city
+            day: this.state.day,		// 현재 날짜을 body에 넣는다.
          }
 
         
@@ -60,14 +63,7 @@ class Main extends React.Component {
         .then(res => res.json())    // 서버로부터 받음
         .then(json => {
             console.log(json);      
-            
-            //console.log('금일 확진자 수 : ', json.response.body.items.item[18].incDec._text);     //금일 확진자 수
-            //const incdec = json.response.body.items.item[18].incDec._text
-            //console.log(incdec);
-            
-            //console.log(json.list[0].ISOL_ING_CNT);    //현재 확진자 환자 수
-            //console.log(json.list[0].OVER_FLOW_CNT);    //OVER_FLOW_CNT 해외유입 수
-            //console.log(json.list[0].LOCAL_OCC_CNT);    //LOCAL_OCC_CNT 지역발생 수 
+  
         });
     }
     
@@ -86,8 +82,9 @@ class Main extends React.Component {
                 
                     
 
-                    <input placeholder={this.state.city} name="city" onChange={this.onChange}/>  
-                    <button onClick={this.onclick}>Search</button>                      
+                    <input placeholder={this.state.city} name="city"/*  onChange={this.onChange} *//>  
+                    <button onClick={this.onclick}>Search</button>        
+                    <h1>{this.state.data}</h1>              
                 </form>
             </div>
             
