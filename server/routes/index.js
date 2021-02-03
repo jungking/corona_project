@@ -38,9 +38,8 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
     const airbuffer = fs.readFileSync('airdata-json.json')
     const airjson = airbuffer.toString()
 
-    //console.log("airjson =", airjson)
-    console.log("airjson =", airjson)
-    //json.response.body.items.item[18].incDec._text     //금일 확진자 수
+    let parseData = JSON.parse(airjson)
+    console.log(parseData.response.body.items.item[10].incDec._text)
     
     //var Dec = ai.response.body.items.item[1]._text //body.items.item[18].incDec._text
     //console.log(Dec)
