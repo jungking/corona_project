@@ -2,8 +2,9 @@ import React from 'react';
 import moment from 'moment';
 
 
-var m = moment().format('YYYYMMDD'); //오늘 날짜
-
+//var m = moment(); // m 포멧
+var m1 = moment().format('YYYYMMDD');
+var m2 = moment().format('YYYY-MM-DD');
 /* import './main.css'; */
 
 
@@ -12,34 +13,36 @@ class Main extends React.Component {
         super(props);
 
         this.state = {
-            day:m,    //날짜 받는 state값day 에 오늘날짜 m 입력
-            city : '지역 명',
-            //title : null
+            day:m1,    //날짜 받는 state값day 에 오늘날짜 m 입력
+            city : "지역 명",
         };
     }
-/*     onChange = (e) =>{ //최초 실행시 클릭 함수
+     onChange = (e) =>{ //최초 실행시 클릭 함수
         this.setState({
             [e.target.name]: e.target.value ,   //  input창 입력값을 바로바로 state값 초기화
         })
-        console.log(this.state.location);
-    } */
+        //console.log(this.state.calldb);  // 타이핑 마다 console.log
+    } 
 
     onclick = (e) => { //지역 명 넣고 클릭 함수
+        e.preventDefault();
         const body = {
             city : this.state.city,
         }
-        fetch("http:/localhost:5000/calldb",{
+        fetch('http://localhost:5000/calldb',{
             method: "post", //통신방법 post
-            headers : {
+             headers : {
                 "content-type" : "application/json",
-            },
+                "Accept" : 'application/json'
+            }, 
             body:JSON.stringify(body),
+            
         })
         .then((res)=> res.json())
         .then((json) => {
-            console.log(json);
+            console.log("선택한 지역의 확진자 수 : ",json.incdec);   //incdec 출력
             this.setState({
-              data: json
+              data: json.incdec
         
             });
         });
@@ -59,11 +62,11 @@ class Main extends React.Component {
             //mode : 'no-cors',
             body: JSON.stringify(body),	// json화 해버리기
             
+            
         })
         .then(res => res.json())    // 서버로부터 받음
         .then(json => {
-            console.log(json);      
-  
+            console.log("DB에 저장된 API 데이터(추후 삭제 예정) : ",json);      
         });
     }
     
@@ -73,18 +76,18 @@ class Main extends React.Component {
                 <h1>CORONA PROJECT</h1>
                 
                 <form>
-                    {this.state.title ? <h1> DB 현황 확인 : {this.state.title}</h1>:<h1>DB 현황 확인 : loading...</h1>}
+                    <br/>
                     <button onClick = {this.search}> 최초 실행 시 클릭하여 DB에 정보 저장</button>
-                    <h1>저장된 정보의 날짜는 ({m})</h1>
+                    <br/><br/><br/>
+                    <h1>저장된 정보의 날짜는 ({m2})</h1>
+                    <br/><br/><br/>
 
-                    <h1>지역</h1>
-                    <h4>제주, 경남, 경북, 전남, 전북, 충남, 충북, 강원 ,경기</h4><h4> 세종, 울산, 대전 광주, 인천, 대구, 부산, 서울, 전국</h4>
-                
+                    <h1>지역 : </h1>
+                    <h4>제주, 경남, 경북, 전남, 전북, 충남, 충북, 강원 ,경기 <br/> 세종, 울산, 대전 광주, 인천, 대구, 부산, 서울, 전국</h4>
                     
-
-                    <input placeholder={this.state.city} name="city"/*  onChange={this.onChange} *//>  
-                    <button onClick={this.onclick}>Search</button>        
-                    <h1>{this.state.data}</h1>              
+                    <input placeholder={this.state.city} name='city'  onChange={this.onChange} />  
+                    <button onClick={this.onclick}>Search</button>  <br/><br/>      
+                    <h1>{this.state.city}의 {m2} 확진자 수 는 : {this.state.data}</h1> 
                 </form>
             </div>
             
