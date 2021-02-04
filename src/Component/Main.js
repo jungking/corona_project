@@ -54,10 +54,16 @@ class Main extends React.Component {
         })
         .then((res)=> res.json())
         .then((json) => {
-            console.log("선택한 지역의 확진자 수 : ",json.incdec);   //incdec 출력
+            //console.log("선택한 지역의 확진자 수 : ",json[1].incdec);   //incdec 출력
             this.setState({
-              data: json.incdec
-        
+              day : json[0].date,
+              data1: json[0].incdec,
+              data2: json[1].incdec,
+              data3: json[2].incdec,
+              data4: json[3].incdec,
+              data5: json[4].incdec,
+              data6: json[5].incdec,
+              data7: json[6].incdec
             });
         });
     }   
@@ -99,7 +105,7 @@ class Main extends React.Component {
                     
                     <button className = "btn-1" onClick = {this.search}> 최초 실행 시 클릭하여 DB에 정보 저장</button>
                     
-                    <h1>저장된 정보의 날짜는 ({momen})</h1>
+                    <h1>저장된 정보의 최신 날짜는 ({momen})</h1>
                     <br/>
 
                     <h1>지역 : </h1>
@@ -107,13 +113,13 @@ class Main extends React.Component {
                     <br/>
                     <input className="textbox" placeholder={this.state.city} name='city'  onChange={this.onChange} />  
                     <button className = "btn-2" onClick={this.onclick}>Search</button> 
-                    <h2>{this.state.city}의 {m11} 확진자 수 는 : {this.state.data}</h2>
-                    <h2>{this.state.city}의 {m22} 확진자 수 는 : {this.state.data}</h2>
-                    <h2>{this.state.city}의 {m33} 확진자 수 는 : {this.state.data}</h2>
-                    <h2>{this.state.city}의 {m44} 확진자 수 는 : {this.state.data}</h2>
-                    <h2>{this.state.city}의 {m55} 확진자 수 는 : {this.state.data}</h2>
-                    <h2>{this.state.city}의 {m66} 확진자 수 는 : {this.state.data}</h2>
-                    <h2>{this.state.city}의 {m77} 확진자 수 는 : {this.state.data}</h2>                </form>
+                    <h2>{this.state.city}의 {m11} 확진자 수 는 : {this.state.data1}</h2>
+                    <h2>{this.state.city}의 {m22} 확진자 수 는 : {this.state.data2}</h2>
+                    <h2>{this.state.city}의 {m33} 확진자 수 는 : {this.state.data3}</h2>
+                    <h2>{this.state.city}의 {m44} 확진자 수 는 : {this.state.data4}</h2>
+                    <h2>{this.state.city}의 {m55} 확진자 수 는 : {this.state.data5}</h2>
+                    <h2>{this.state.city}의 {m66} 확진자 수 는 : {this.state.data6}</h2>
+                    <h2>{this.state.city}의 {m77} 확진자 수 는 : {this.state.data7}</h2>                </form>
             </div>
             
         );
