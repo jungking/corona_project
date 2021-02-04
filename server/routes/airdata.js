@@ -13,7 +13,6 @@ const airdata = (day,callback) => {       // index.js에서 보내준 시/도 �
     
     const url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?';
     //api사용하기 위한 url이다. 끝에 '?'물음표를 붙여야된다.
-        console.log(day)
         var queryParams = encodeURIComponent('serviceKey') + '=' + serviceKey   //서비스키
         queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); //페이지 번호
         queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10');   //한 페이지 경과 수
