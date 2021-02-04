@@ -7,8 +7,6 @@ const mysql = require('mysql');
 
 const fs = require('fs');
 
-
-
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
 
@@ -25,7 +23,7 @@ conn.connect()  //db 연결
 router.post('/location',function (req,res){ ///프론트에서 fetch로 요청한 location 친구
     
     console.log("COMPLETE : server connect")    //확인용
-    airdata(req.body.day,(error, {air}={})=>{  //airdata함수에 fetch해준 req->body->day를 보내준다
+    airdata(req.body.day1,(error, {air}={})=>{  //airdata함수에 fetch해준 req->body->day를 보내준다
         if(error){      //에러 발생시
             console.log("ERROR : server, index.js error");
             return res.send({error})
@@ -33,9 +31,8 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
             return res.send(air); //return 프론트로 가던 것
 
     })
-    const airbuffer = fs.readFileSync('airdata-json.json')  //저장된 json파일 불러오기 (buffer)
+    {const airbuffer = fs.readFileSync('airdata-json.json')  //저장된 json파일 불러오기 (buffer)
     const airjson = airbuffer.toString()    // json파일의 buffer를 string 형식으로 변경
-
 
     let parseData = JSON.parse(airjson)  //json파일 파싱
     
@@ -91,10 +88,11 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
     conn.query("UPDATE 서울 set incdec=(?) Where id = 1", [Dec17]) 
 
     var Dec18 = parseData.response.body.items.item[18].incDec._text  // 전국 확진자 수
-    conn.query("UPDATE 전국 set incdec=(?) Where id = 1", [Dec18])  
+    conn.query("UPDATE 전국 set incdec=(?) Where id = 1", [Dec18])  }
+
 })
 
-router.post("/calldb", function(req,res){
+router.post("/calldb", function(req,res){ // db에서 저장된 data 가져오기
     const cityname = req.body.city;
     conn.query("SELECT * FROM "+cityname, function(err,rows,fields){
         if(err){
