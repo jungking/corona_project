@@ -3,7 +3,20 @@ body{
   background-color : #DCEBFF;
   align-items: center;
   text-align:center;
-  font-size:large
+  font-size:medium
+}
+
+.title{
+  font-size:100px;
+  color:rgb(131, 125, 46)
+}
+
+.textbox{
+  width: 250px;
+  height:45px;
+  font-size: large;
+  text-align:center;
+  
 }
 
 button,
@@ -17,17 +30,17 @@ button::after {
 button {
   background: none;
   border: 3px solid rgb(60, 109, 243);
-  border-radius: 5px;
+  border-radius: 3px;
   color:  rgb(60, 109, 243);
   display: block;
-  font-size: 1.6em;
+  font-size: 1em;
   font-weight: bold;
-  margin: 1em auto;
-  padding: 2em 6em;
+  margin: 0.8em auto;
+  padding: 2em 4em;
   position: relative;
   text-transform: uppercase;
+  
 }
-
 button::before,
 button::after {
   background: rgb(213, 248, 208);
