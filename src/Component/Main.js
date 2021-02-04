@@ -3,9 +3,17 @@ import moment from 'moment';
 
 
 //var m = moment(); // m 포멧
-//var m1 = moment().format('YYYYMMDD');  //12시 지나면 당연히 에러나지.. 값이 없는데
-var m1 = '20210203'
-var m2 = moment().format('YYYY-MM-DD');
+var m1 = moment().format('YYYYMMDD');  //12시 지나면 당연히 에러나지.. 값이 없는데
+var m2 = moment().subtract(1,'d').format('YYYYMMDD');
+var m3 = moment().subtract(2,'d').format('YYYYMMDD');
+var m4 = moment().subtract(3,'d').format('YYYYMMDD');
+var m5 = moment().subtract(4,'d').format('YYYYMMDD');
+var m6 = moment().subtract(5,'d').format('YYYYMMDD');
+var m7 = moment().subtract(6,'d').format('YYYYMMDD');
+
+console.log(m1,m2,m3,m4,m5,m6,m7)
+//var m1 = '20210203'
+var momen = moment().format('YYYY-MM-DD');
 /* import './main.css'; */
 
 
@@ -14,7 +22,13 @@ class Main extends React.Component {
         super(props);
 
         this.state = {
-            day:m1,    //날짜 받는 state값day 에 오늘날짜 m 입력
+            day1:m1,    //날짜 받는 state값day 에 오늘날짜 m 입력
+            day2:m2,
+            day3:m3,
+            day4:m4,
+            day5:m5,
+            day6:m6,
+            day7:m7,
             city : "지역 명",
         };
     }
@@ -53,7 +67,13 @@ class Main extends React.Component {
         e.preventDefault();
 
          const body = {
-            day: this.state.day,		// 현재 날짜을 body에 넣는다.
+            day1: this.state.day1,		// 현재 날짜을 body에 넣는다.
+            day2: this.state.day2,
+            day3: this.state.day3,
+            day4: this.state.day4,
+            day5: this.state.day5,
+            day6: this.state.day6,
+            day7: this.state.day7,
          }
 
         
@@ -80,7 +100,7 @@ class Main extends React.Component {
                     <br/>
                     <button className = "btn-1" onClick = {this.search}> 최초 실행 시 클릭하여 DB에 정보 저장</button>
                     <br/>
-                    <h1>저장된 정보의 날짜는 ({m2})</h1>
+                    <h1>저장된 정보의 날짜는 ({momen})</h1>
                     <br/>
 
                     <h1>지역 : </h1>
@@ -88,7 +108,7 @@ class Main extends React.Component {
                     
                     <input placeholder={this.state.city} name='city'  onChange={this.onChange} />  
                     <button className = "btn-2" onClick={this.onclick}>Search</button>  <br/>
-                    <h1>{this.state.city}의 {m2} 확진자 수 는 : {this.state.data}</h1>                 </form>
+                    <h1>{this.state.city}의 {momen} 확진자 수 는 : {this.state.data}</h1>                 </form>
             </div>
             
         );
