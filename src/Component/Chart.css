@@ -1,0 +1,5 @@
+@import '../../node_modules/react-vis/dist/style.css';
+
+.Chart{
+    text-align : center;
+}
