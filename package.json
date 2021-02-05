@@ -21,6 +21,7 @@
     "react-scripts": "4.0.1",
     "react-vis": "^1.11.7",
     "sequelize": "^6.4.0",
+    "victory": "^35.4.8",
     "web-vitals": "^0.2.4",
     "xml-js": "^1.6.11"
   },
