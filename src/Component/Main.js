@@ -19,7 +19,6 @@ var momen = moment().format('YYYY-MM-DD');
 class Main extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             day1:m1,    //날짜 받는 state값day 에 오늘날짜 m 입력
             day2:m2,
@@ -29,8 +28,10 @@ class Main extends React.Component {
             day6:m6,
             day7:m7,
             city : "지역 명",
+            data1:'-',data2:'-',data3:'-',data4:'-',data5:'-',data6:'-',data7:'-'
         };
     }
+
      onChange = (e) =>{ //최초 실행시 클릭 함수
         this.setState({
             [e.target.name]: e.target.value ,   //  input창 입력값을 바로바로 state값 초기화
@@ -80,8 +81,6 @@ class Main extends React.Component {
             day6: this.state.day6,
             day7: this.state.day7,
          }
-
-        
         fetch('http://localhost:5000/location',{ // localhost 서버 5000번 포트의 location에게 보낸다.
             method:"post",
             headers: { "Content-Type":  "application/json" },
@@ -103,16 +102,24 @@ class Main extends React.Component {
                     <h1>저장된 정보의 최신 날짜는 ({momen})</h1><br/>
                     <h1>지역 : </h1>
                     <h4>제주, 경남, 경북, 전남, 전북, 충남, 충북, 강원 ,경기 <br/> 세종, 울산, 대전 광주, 인천, 대구, 부산, 서울, 전국</h4><br/>
-                    <input className="textbox" placeholder={this.state.city} name='city'  onChange={this.onChange} />  
+                    <input className="textbox" placeholder={this.state.city} name='city' onChange={this.onChange} />  
                     <button className = "btn-2" onClick={this.onclick}>Search</button> 
-                    <h2>{this.state.city}의 {m11} 확진자 수 는 : {this.state.data1}</h2>
-                    <h2>{this.state.city}의 {m22} 확진자 수 는 : {this.state.data2}</h2>
-                    <h2>{this.state.city}의 {m33} 확진자 수 는 : {this.state.data3}</h2>
-                    <h2>{this.state.city}의 {m44} 확진자 수 는 : {this.state.data4}</h2>
-                    <h2>{this.state.city}의 {m55} 확진자 수 는 : {this.state.data5}</h2>
-                    <h2>{this.state.city}의 {m66} 확진자 수 는 : {this.state.data6}</h2>
-                    <h2>{this.state.city}의 {m77} 확진자 수 는 : {this.state.data7}</h2>     
-                    <Chart></Chart>
+                    <h2>{this.state.city}의 {m11} 확진자 수 는 : {this.state.data1}명</h2>
+                    <h2>{this.state.city}의 {m22} 확진자 수 는 : {this.state.data2}명</h2>
+                    <h2>{this.state.city}의 {m33} 확진자 수 는 : {this.state.data3}명</h2>
+                    <h2>{this.state.city}의 {m44} 확진자 수 는 : {this.state.data4}명</h2>
+                    <h2>{this.state.city}의 {m55} 확진자 수 는 : {this.state.data5}명</h2>
+                    <h2>{this.state.city}의 {m66} 확진자 수 는 : {this.state.data6}명</h2>
+                    <h2>{this.state.city}의 {m77} 확진자 수 는 : {this.state.data7}명</h2>     
+                    <Chart day1 = {this.state.day1} data1 = {this.state.data1}
+                           day2 = {this.state.day2} data2 = {this.state.data2}
+                           day3 = {this.state.day3} data3 = {this.state.data3} 
+                           day4 = {this.state.day4} data4 = {this.state.data4} 
+                           day5 = {this.state.day5} data5 = {this.state.data5} 
+                           day6 = {this.state.day6} data6 = {this.state.data6} 
+                           day7 = {this.state.day7} data7 = {this.state.data7} 
+                        >
+                    </Chart>
                     
                 </form>
 
