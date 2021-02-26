@@ -521,15 +521,49 @@ router.post("/calldb", function(req,res){ // db에서 저장된 data 가져오�
             console.log("DB접속 성공, 가져온 지역 : ", cityname);
             console.log(rows);
             res.send(rows)
-            
         };
+});
 
+router.post("/crolling", function(req,res){ // db에서 저장된 data 가져오기
     getHtml()
         .then(html => {
-            let ulList = '123';
+            let ulList = '0';
             const $ = cheerio.load(html.data);
-             /* const $bodyList = $("div.regional_step_status").children("div.rss_detail"); */
-             const $bodyList = $("div").children("div#step_map_city1");
+            var $bodyList = '0'
+            if(cityname =="서울"){
+                $bodyList = $("div.rss_detail>div").children("div#step_map_city1");}
+            else if(cityname =="부산"){
+                $bodyList = $("div").children("div#step_map_city2");}
+            else if(cityname =="대구"){
+                $bodyList = $("div").children("div#step_map_city3");}
+            else if(cityname =="인천"){
+                $bodyList = $("div").children("div#step_map_city4");}
+            else if(cityname =="광주"){
+                $bodyList = $("div").children("div#step_map_city5");}
+            else if(cityname =="대전"){
+                $bodyList = $("div").children("div#step_map_city6");}
+            else if(cityname =="울산"){
+                $bodyList = $("div").children("div#step_map_city7");}
+            else if(cityname =="세종"){
+                $bodyList = $("div").children("div#step_map_city8");}
+            else if(cityname =="경기"){
+                $bodyList = $("div").children("div#step_map_city9");}
+            else if(cityname =="강원"){
+                $bodyList = $("div").children("div#step_map_city10");}
+            else if(cityname =="충북"){
+                $bodyList = $("div").children("div#step_map_city11");}
+            else if(cityname =="충남"){
+                $bodyList = $("div").children("div#step_map_city12");}
+            else if(cityname =="전북"){
+                $bodyList = $("div").children("div#step_map_city13");}
+            else if(cityname =="전남"){
+                $bodyList = $("div").children("div#step_map_city14");}
+            else if(cityname =="경북"){
+                $bodyList = $("div").children("div#step_map_city15");}
+            else if(cityname =="경남"){
+                $bodyList = $("div").children("div#step_map_city16");}
+            else if(cityname =="제주"){
+                $bodyList = $("div").children("div#step_map_city17");}
 
             $bodyList.each(function(i, elem) {
                 ulList = {
@@ -538,11 +572,11 @@ router.post("/calldb", function(req,res){ // db에서 저장된 data 가져오�
                     info:$(this).find('p.rssd_descript').text()
                 }
             });
-            
-            return ulList
+            console.log(ulList)
+            return res.send(ulList.status)
         })
-        .then(res => console.log(res))
-    });
-});
 
+    });
+    
+});
 module.exports = router;
