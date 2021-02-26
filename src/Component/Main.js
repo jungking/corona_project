@@ -29,7 +29,7 @@ class Main extends React.Component {
             day7:m7,
             city : "지역 명",
             data1:'-',data2:'-',data3:'-',data4:'-',data5:'-',data6:'-',data7:'-',
-            info : "null"
+            info : 'null'
         };
     }
 
@@ -44,7 +44,6 @@ class Main extends React.Component {
         e.preventDefault();
         const body = {
             city : this.state.city,
-            info : this.state.info
         }
         fetch('http://localhost:5000/calldb',{
             method: "post", //통신방법 post
@@ -53,7 +52,6 @@ class Main extends React.Component {
                 "Accept" : 'application/json'
             }, 
             body:JSON.stringify(body),
-            
         })
         .then((res)=> res.json())
         .then((json) => {
@@ -66,9 +64,21 @@ class Main extends React.Component {
               data4: json[3].incdec,
               data5: json[4].incdec,
               data6: json[5].incdec,
-              data7: json[6].incdec,
+              data7: json[6].incdec
             });
-        });
+        fetch('http://localhost:5000/crolling',{
+            method: "post", //통신방법 post
+            headers : {
+                    "content-type" : "application/json",
+                },  body:JSON.stringify(body),
+        })
+        .then((res)=>res.json())
+        .then((json)=>{
+            this.setState({
+                info : json.status
+                })
+            })
+        })
     }   
 
     search=(e)=>{       //최초실행시 클릭 함수 클릭 시 실행되는 함수 , 추후에 클릭 없이 search만 실행 할 것.
@@ -81,8 +91,8 @@ class Main extends React.Component {
             day4: this.state.day4,
             day5: this.state.day5,
             day6: this.state.day6,
-            day7: this.state.day7
-          }
+            day7: this.state.day7,
+         }
         fetch('http://localhost:5000/location',{ // localhost 서버 5000번 포트의 location에게 보낸다.
             method:"post",
             headers: { "Content-Type":  "application/json" },
@@ -113,7 +123,7 @@ class Main extends React.Component {
                     <h2>{this.state.city}의 {m55} 확진자 수 는 : {this.state.data5}명</h2>
                     <h2>{this.state.city}의 {m66} 확진자 수 는 : {this.state.data6}명</h2>
                     <h2>{this.state.city}의 {m77} 확진자 수 는 : {this.state.data7}명</h2>     
-                    <h2>{this.state.city}의 사회적 거리두기 단계 정보 : {this.state.info}</h2>
+                    <h2>{this.state.city}의 사회적 거리두기 단계 : {this.state.info}명</h2>
                     <Chart day1 = {this.state.day1} data1 = {this.state.data1}
                            day2 = {this.state.day2} data2 = {this.state.data2}
                            day3 = {this.state.day3} data3 = {this.state.data3} 
