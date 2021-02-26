@@ -4,6 +4,16 @@ const express = require('express');
 const airdata = require('./airdata'); //여기서 만들어논 함수를 사용할거다
 const router = express.Router();
 const mysql = require('mysql');
+const axios = require("axios");
+const cheerio = require("cheerio");
+
+const getHtml = async () => {
+    try {
+        return await axios.get("http://ncov.mohw.go.kr/regSocdisBoardView.do");
+    } catch (error){
+        console.error(error);
+    }
+}
 
 const fs = require('fs');
 
@@ -21,7 +31,7 @@ const conn = mysql.createConnection({     // mysql db 커넥션 생성
 conn.connect()  //db 연결
 
 router.post('/location',function (req,res){ ///프론트에서 fetch로 요청한 location 친구
-    
+   
     console.log("COMPLETE : server connect")    //확인용
     airdata(req.body.day1,(error, {air}={})=>{  //airdata함수에 fetch해준 req->body->day를 보내준다
         if(error){      //에러 발생시
@@ -511,7 +521,27 @@ router.post("/calldb", function(req,res){ // db에서 저장된 data 가져오�
             console.log("DB접속 성공, 가져온 지역 : ", cityname);
             console.log(rows);
             res.send(rows)
+            
         };
+
+    getHtml()
+        .then(html => {
+            let ulList = '123';
+            const $ = cheerio.load(html.data);
+             /* const $bodyList = $("div.regional_step_status").children("div.rss_detail"); */
+             const $bodyList = $("div").children("div#step_map_city1");
+
+            $bodyList.each(function(i, elem) {
+                ulList = {
+                    title: $(this).find('h3.rssd_title_1').text(),
+                    status:$(this).find('h4.rssd_title_2').text(),
+                    info:$(this).find('p.rssd_descript').text()
+                }
+            });
+            
+            return ulList
+        })
+        .then(res => console.log(res))
     });
 });
 
