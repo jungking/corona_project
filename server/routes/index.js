@@ -568,12 +568,12 @@ router.post("/crolling", function(req,res){ // db에서 저장된 data 가져오
             $bodyList.each(function(i, elem) {
                 ulList = {
                     title: $(this).find('h3.rssd_title_1').text(),
-                    status:$(this).find('h4.rssd_title_2').text(),
-                    info:$(this).find('p.rssd_descript').text()
+                    /* status:$(this).find('h4.rssd_title_2').text(), */
+                    /* info:$(this).find('p.rssd_descript').text() */
                 }
             });
             console.log(ulList)
-            return res.send(ulList.status)
+            return
         })
 
     });
