@@ -75,7 +75,7 @@ class Main extends React.Component {
         .then((res)=>res.json())
         .then((json)=>{
             this.setState({
-                info : json.status
+                info : this.state.info
                 })
             })
         })
