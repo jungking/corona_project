@@ -1,8 +1,7 @@
 {
-  "proxy": "https://hjlimweb.herokuapp.com",
   "name": "renew",
   "version": "0.1.0",
-  "engines": {
+  "engines":{
     "node": "14.15.3",
     "npm": "6.14.9"
   },
@@ -18,7 +17,6 @@
     "cors": "^2.8.5",
     "date-utils": "^1.2.21",
     "express": "^4.17.1",
-    "http-proxy-middleware": "^1.0.6",
     "json-parse": "^1.0.3",
     "mysql": "^2.18.1",
     "parse": "^2.19.0",
