@@ -22,7 +22,7 @@ router.use(bodyParser.urlencoded({extended: true}))
 
 const conn = mysql.createConnection({     // mysql db 커넥션 생성
     host : 'us-cdbr-east-03.cleardb.com',
-    port : 3309,
+    port : 3306,
     user : 'b62069265faf14',
     password : '6147a003',
     database : 'heroku_b72dbf49fddd7db'
