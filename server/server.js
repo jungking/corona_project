@@ -2,7 +2,7 @@ const express = require('express');             //익스프레스 모듈 가져�
 const app = express();
 const cors = require('cors');                   //cors를 사용하고 싶다
 const bodyParser = require('body-parser');      //body-parser을 사용하고 싶다
-const port =5000;                               //서버포트는 5000번 포트
+const port = process.env.PORT || 5000;                              //서버포트는 heroku 포트 또는5000번 포트
 const route = require('./routes/index');        //router가 있는 곳이다 만들 index.js다
 app.use(bodyParser.json());
 
