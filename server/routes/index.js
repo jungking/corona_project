@@ -7,6 +7,7 @@ const mysql = require('mysql');
 const axios = require("axios");
 const cheerio = require("cheerio");
 
+
 const getHtml = async () => {
     try {
         return await axios.get("http://ncov.mohw.go.kr/regSocdisBoardView.do");
