@@ -21,6 +21,10 @@ const fs = require('fs');
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
 
+router.use('/', (req, res) => {
+    res.send('...');
+});
+
 const conn = mysql.createConnection({     // mysql db 커넥션 생성
     host : 'us-cdbr-east-03.cleardb.com',
     port : 3306,
@@ -581,3 +585,4 @@ router.post("/calldb", function(req,res){ // db에서 저장된 data 가져오�
     
 });
 module.exports = router;
+export default router;
