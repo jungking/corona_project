@@ -585,4 +585,3 @@ router.post("/calldb", function(req,res){ // db에서 저장된 data 가져오�
     
 });
 module.exports = router;
-export default router;
