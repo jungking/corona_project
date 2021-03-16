@@ -42,7 +42,6 @@
     "start": "concurrently \"nodemon ./server/server.js\" \"npm run dev\"",
     "heroku-postbuild": "npm run build"
   },
-  "proxy":"https://hjlimweb.herokuapp.com/",
   "eslintConfig": {
     "extends": [
       "react-app",
