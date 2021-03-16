@@ -7,9 +7,9 @@ const route = require('./routes/index');        //router가 있는 곳이다 만
 app.use(bodyParser.json());
 
 app.use(cors());
-app.use('/', route);
+//app.use('/', route);
 
- app.get('/', function (req,res){
+ app.get('/hello', function (req,res){
     res.send('Hello World!')
 }) 
 
