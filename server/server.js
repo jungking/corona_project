@@ -9,9 +9,9 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/', route);
 
-/* app.get('/', function (req,res){
+ app.get('/', function (req,res){
     res.send('Hello World!')
-}) */
+}) 
 
 app.listen(port, function(){
     console.log(`express is running on ${port}`);   //익스프레스 연결 확인
