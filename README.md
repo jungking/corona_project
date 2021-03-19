@@ -11,9 +11,13 @@
 
 <h2 align = center> 프로젝트 설명 </h2>
 
-<p align = "center">
+
   코로나 바이러스 확진자 현황을 전국, 시, 도 별로 보기 쉽게 표현
-</p>
+  - 리액트를 이용한 Front 구현, [react-chartjs-2](https://github.com/reactchartjs/react-chartjs-2) 라이브러리로 차트 시각화
+
+  - Node.js 의 express 라이브러리를 이용한 Server 구현
+  - mysql에 clearDB 구현
+
 
 <p align="center">
   <img  src="https://user-images.githubusercontent.com/46296688/111752945-a1df9f80-88d9-11eb-9917-241c5f417cd8.gif"/>
@@ -21,7 +25,8 @@
 
 
 
-`최초 실행 시 클릭하여 DB에 저장` 버튼 클릭 시 공공 데이터 포털의 [보건복지부_코로나19 시·도발생_현황](https://www.data.go.kr/data/15043378/openapi.do)의 각 지역별 확진자 값을 MYSQL 데이터베이스에 저장
+`최초 실행 시 클릭하여 DB에 저장` 버튼 클릭 시 공공 데이터 포털의 [보건복지부_코로나19 시·도발생_현황](https://www.data.go.kr/data/15043378/openapi.do)의 각 지역별 확진자 값을 데이터베이스에 저장
+DB에는 17개 시,도 테이블과 1개의 전국테이블로 총 18개의 테이블이 존재하고, 각 테이블의 column은 id(번호), date(날짜), incdec(확진자 수)
 
 -----------------------
 
