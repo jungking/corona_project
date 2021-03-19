@@ -14,9 +14,11 @@
 <p align = "center">
   코로나 바이러스 확진자 현황을 전국, 시, 도 별로 보기 쉽게 표현
 </p>
---------------------------------------------------------------
+
 <p align="center">
   <img alt="React" src="https://user-images.githubusercontent.com/46296688/111752945-a1df9f80-88d9-11eb-9917-241c5f417cd8.gif"/>
 </p>
 
-+최초 실행 시 클릭하여 DB에 저장
+
+
+`최초 실행 시 클릭하여 DB에 저장` 버튼 클릭 시 공공 데이터 포털의 [보건복지부_코로나19 시·도발생_현황](https://www.data.go.kr/data/15043378/openapi.do)
