@@ -1,6 +1,6 @@
 <h1 align = center>코로나 웹사이트 프로젝트 </h1>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/46296688/111747575-d00db100-88d2-11eb-94ec-690d2c5a06fe.PNG" width : "60%" height : "120%"></img>
+  <img src="https://user-images.githubusercontent.com/46296688/111747575-d00db100-88d2-11eb-94ec-690d2c5a06fe.PNG" width : "60%" height : "100%"></img>
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@
 
 
 <p align="center">
-  <img  src="https://user-images.githubusercontent.com/46296688/111752945-a1df9f80-88d9-11eb-9917-241c5f417cd8.gif"/>
+  <img  src="https://user-images.githubusercontent.com/46296688/111752945-a1df9f80-88d9-11eb-9917-241c5f417cd8.gif" width : "60" height : "60"/>
 </p>
 
 
@@ -31,13 +31,13 @@ DB에는 17개 시,도 테이블과 1개의 전국테이블로 총 18개의 테�
 -----------------------
 
 <p align="center">
-  <img  src="https://user-images.githubusercontent.com/46296688/111753001-b2901580-88d9-11eb-8fd7-06e5ca7e23b9.jpg"/>
+  <img  src="https://user-images.githubusercontent.com/46296688/111753001-b2901580-88d9-11eb-8fd7-06e5ca7e23b9.jpg" width : "60%" height : "60%"/>
 </p>
 
 <p align="center">
-  <img  src="https://user-images.githubusercontent.com/46296688/111754656-97bea080-88db-11eb-9671-456240fce350.gif"/>
+  <img  src="https://user-images.githubusercontent.com/46296688/111754656-97bea080-88db-11eb-9671-456240fce350.gif" width : "60%" height : "60%"/>
 </p>
 
 <p align="center">
-  <img  src="https://user-images.githubusercontent.com/46296688/111755000-f71cb080-88db-11eb-95a5-35ebd4975861.gif"/>
+  <img  src="https://user-images.githubusercontent.com/46296688/111755000-f71cb080-88db-11eb-95a5-35ebd4975861.gif" width : "60%" height : "60%"/>
 </p>
