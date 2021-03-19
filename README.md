@@ -1,6 +1,6 @@
 <h1 align = center>코로나 웹사이트 프로젝트 </h1>
 
-<p align = center>(https://user-images.githubusercontent.com/46296688/111747575-d00db100-88d2-11eb-94ec-690d2c5a06fe.PNG)</p>
+<p align = center>![co](https://user-images.githubusercontent.com/46296688/111747575-d00db100-88d2-11eb-94ec-690d2c5a06fe.PNG)</p>
 <h2 align = center> 프로젝트 설명 </h2>
 
 
