@@ -25,8 +25,8 @@
 
 
 
-`최초 실행 시 클릭하여 DB에 저장` 버튼 클릭 시 공공 데이터 포털의 [보건복지부_코로나19 시·도발생_현황](https://www.data.go.kr/data/15043378/openapi.do)의 각 지역별 확진자 값을 데이터베이스에 저장
-DB에는 17개 시,도 테이블과 1개의 전국테이블로 총 18개의 테이블이 존재하고, 각 테이블의 column은 id(번호), date(날짜), incdec(확진자 수)
+`최초 실행 시 클릭하여 DB에 저장` 버튼 클릭 시 공공 데이터 포털의 [보건복지부_코로나19 시·도발생_현황](https://www.data.go.kr/data/15043378/openapi.do)의 각 지역별 확진자 값 7일치를 데이터베이스에 저장
+DB에는 17개 시,도 테이블과 1개의 전국테이블로 총 18개의 테이블이 존재, 각 테이블의 column은 id(번호), date(날짜), incdec(확진자 수)
 
 <p align="center">
   <img  src="https://user-images.githubusercontent.com/46296688/111753001-b2901580-88d9-11eb-8fd7-06e5ca7e23b9.jpg" width : "60%" height : "60%"/>
@@ -41,8 +41,12 @@ DB에는 17개 시,도 테이블과 1개의 전국테이블로 총 18개의 테�
   <img  src="https://user-images.githubusercontent.com/46296688/111754656-97bea080-88db-11eb-9671-456240fce350.gif" width : "60%" height : "60%"/>
 </p>
 
+`SEARCH` 버튼 클릭 시 데이터베이스에 저장된 7일 치 확진자 수 데이터를 node.js express 서버로 전달 후, 다시 react로 가져와 출력
+
 -----------------------
 
 <p align="center">
   <img  src="https://user-images.githubusercontent.com/46296688/111755000-f71cb080-88db-11eb-95a5-35ebd4975861.gif" width : "60%" height : "60%"/>
 </p>
+
+[react-chartjs-2](https://github.com/reactchartjs/react-chartjs-2) 라이브러리로 차트 시각화
