@@ -34,9 +34,13 @@ DB에는 17개 시,도 테이블과 1개의 전국테이블로 총 18개의 테�
   <img  src="https://user-images.githubusercontent.com/46296688/111753001-b2901580-88d9-11eb-8fd7-06e5ca7e23b9.jpg" width : "60%" height : "60%"/>
 </p>
 
+-----------------------
+
 <p align="center">
   <img  src="https://user-images.githubusercontent.com/46296688/111754656-97bea080-88db-11eb-9671-456240fce350.gif" width : "60%" height : "60%"/>
 </p>
+
+-----------------------
 
 <p align="center">
   <img  src="https://user-images.githubusercontent.com/46296688/111755000-f71cb080-88db-11eb-95a5-35ebd4975861.gif" width : "60%" height : "60%"/>
