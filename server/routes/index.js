@@ -7,7 +7,14 @@ const mysql = require('mysql');
 const axios = require("axios");
 const cheerio = require("cheerio");
 
+const _sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
+const timer = async () => {
+    console.log('First');
+    await _sleep(1000);
+    console.log('Second');
+};
+timer();
 const getHtml = async () => {
     try {
         return await axios.get("http://ncov.mohw.go.kr/regSocdisBoardView.do");
@@ -17,6 +24,7 @@ const getHtml = async () => {
 }
 
 const fs = require('fs');
+const { wait } = require('@testing-library/react');
 
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
@@ -28,9 +36,12 @@ router.use('/route', (req, res) => {
 const conn = mysql.createConnection({     // mysql db 커넥션 생성
     host : 'us-cdbr-east-03.cleardb.com',
     port : 3306,
-    user : 'b62069265faf14',
-    password : '6147a003',
-    database : 'heroku_b72dbf49fddd7db'
+    //user : 'b62069265faf14',
+    user : 'be57a688a1d22f',
+    //password : '6147a003',
+    password : '4770c388',
+    //database : 'heroku_b72dbf49fddd7db'
+    database : 'heroku_f0cbae109e45b9f'
 });
 
 conn.connect()  //db 연결
@@ -47,9 +58,8 @@ router.post('/location',function (req,res){ ///프론트에서 fetch로 요청�
         const airjson = airbuffer.toString()    // json파일의 buffer를 string 형식으로 변경
     
         let parseData = JSON.parse(airjson)  //json파일 파싱
-        
         var Dea1 = parseData.response.body.items.item[1].incDec._text  // 제주 확진자 수
-        conn.query("UPDATE 제주 set date = ?, incdec=(?) Where id = 1",[req.body.day1,Dea1]) // db에 넣기
+        conn.query("UPDATE 제주 set date = (?), incdec=(?) Where id = 1",[req.body.day1,Dea1]) // db에 넣기
     
         var Dea2 = parseData.response.body.items.item[2].incDec._text  // 경남 확진자 수
         conn.query("UPDATE 경남 set date = (?), incdec=(?) Where id = 1", [req.body.day1,Dea2]) 
