@@ -7,14 +7,7 @@ const mysql = require('mysql');
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-const _sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
-const timer = async () => {
-    console.log('First');
-    await _sleep(1000);
-    console.log('Second');
-};
-timer();
 const getHtml = async () => {
     try {
         return await axios.get("http://ncov.mohw.go.kr/regSocdisBoardView.do");
@@ -24,7 +17,6 @@ const getHtml = async () => {
 }
 
 const fs = require('fs');
-const { wait } = require('@testing-library/react');
 
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
