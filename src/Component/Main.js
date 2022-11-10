@@ -45,7 +45,8 @@ class Main extends React.Component {
         const body = {
             city : this.state.city,
         }
-        fetch('http://localhost:5000/calldb',{
+        //fetch('http://localhost:5000/calldb',{
+            fetch('http://jungking.herokuapp.com/calldb',{ // localhost 서버 5000번 포트의 location에게 보낸다.
             method: "post", //통신방법 post
              headers : {
                 "content-type" : "application/json",
@@ -81,7 +82,9 @@ class Main extends React.Component {
             day6: this.state.day6,
             day7: this.state.day7,
          }
-        fetch('http://localhost:5000/location',{ // localhost 서버 5000번 포트의 location에게 보낸다.
+        //fetch('http://localhost:5000/location',{ // localhost 서버 5000번 포트의 location에게 보낸다.
+        //http://jungking.herokuapp.com
+        fetch('http://jungking.herokuapp.com/location',{ // localhost 서버 5000번 포트의 location에게 보낸다.
             method:"post",
             headers: { "Content-Type":  "application/json" },
             //mode : 'no-cors',
