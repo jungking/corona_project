@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 app.use('/', route);
-
+app.use(express.static(path.join(__dirname,"../buildd")))
 /*
 app.use(express.static(path.join(__dirname, '../build')));
 

@@ -1,6 +1,7 @@
 {
   "name": "renew",
   "version": "0.1.0",
+  "proxy": "http://localhost:8000",
   "engines": {
     "node": "14.15.3",
     "npm": "6.14.9"
@@ -42,6 +43,7 @@
     "start": "concurrently \"nodemon ./server/server.js\" \"npm run dev\"",
     "heroku-postbuild": "npm install && npm run build"
   },
+  
   "eslintConfig": {
     "extends": [
       "react-app",
