@@ -9,12 +9,12 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/', route);
 
-
+/*
 app.use(express.static(path.join(__dirname, '../build')));
 
 app.get('*', (req,res)=> {
     res.sendFile(path.join(__dirname, '../build'));
-}); 
+}); */
 
 
  app.get('/hello', function (req,res){
