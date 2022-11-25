@@ -1,3 +1,7 @@
+heroku -> corona_project updating
+
+-----------------------------------------
+
 <h1 align = center>코로나 웹사이트 프로젝트 </h1>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/46296688/111747575-d00db100-88d2-11eb-94ec-690d2c5a06fe.PNG" width : "60%" height : "100%"></img>
